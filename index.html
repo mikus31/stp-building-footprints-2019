@@ -45,6 +45,8 @@
         var geojson_two = $.getJSON("data/mandeville-buildings-2019-wgs84.geojson", function (data) {
             var buildings_2019 = L.geoJSON(data).addTo(map);
         });
+        // side by side only works with rasters
+        // rasterize the vector layers? in qgis?
         L.control.sideBySide(geojson, geojson_two).addTo(map);
     </script>
 </body>

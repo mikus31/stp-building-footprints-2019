@@ -45,7 +45,7 @@
         var geojson_two = $.getJSON("data/mandeville-buildings-2019-wgs84.geojson", function (data) {
             var buildings_2019 = L.geoJSON(data).addTo(map);
         });
-        L.control.sideBySide(geojson_two, geojson).addTo(map);
+        L.control.sideBySide(geojson, geojson_two).addTo(map);
     </script>
 </body>
 

@@ -5,6 +5,8 @@
     <title>Title Goes Here!</title>
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src="js/leaflet-side-by-side.js"></script>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <!-- Google Fonts -->
@@ -27,26 +29,23 @@
 <body>
     <div id="map"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <script>
         // create map
         // L.mapbox.accessToken = 'pk.eyJ1IjoibWlrdXMzMSIsImEiOiJjazFjNWJibXcwYTJ6M3BxbjExaTAxMDFvIn0.-jtTOhL7aN53DazF5RRvxw';
         var map = L.map('map').setView([30.358292, -90.066007], 13);
-        var buildings_2015 = "data/mandeville-buildings-2015-wgs84.geojson";
-        var buildings_2019 = "data/mandeville-buildings-2019-wgs84.geojson";
-        $.getJSON(buildings_2015, function (data) {
-            drawPlaces(data);
-        });
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
             , maxZoom: 18
             , id: 'mapbox.streets'
             , accessToken: 'pk.eyJ1IjoibWlrdXMzMSIsImEiOiJjazFjNWJibXcwYTJ6M3BxbjExaTAxMDFvIn0.-jtTOhL7aN53DazF5RRvxw'
         }).addTo(map);
-
-        function drawPlaces(data) {
-            L.geoJSON(data).addTo(map);
-        }
+        var geojson = $.getJSON("data/mandeville-buildings-2015-wgs84.geojson", function (data) {
+            var buildings_2015 = L.geoJSON(data).addTo(map);
+        });
+        var geojson_two = $.getJSON("data/mandeville-buildings-2019-wgs84.geojson", function (data) {
+            var buildings_2019 = L.geoJSON(data).addTo(map);
+        });
+        L.control.sideBySide(geojson_two, geojson).addTo(map);
     </script>
 </body>
 

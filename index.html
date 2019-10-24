@@ -31,9 +31,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
     <script>
-        // add data
-        var geojson = $.getJSON("data/mandeville-buildings-2019-wgs84.geojson", function (data) {
-            var buildings_2019 = L.geoJSON(data).addTo(map);
+        // load data
+        $.getJSON("data/mandeville-buildings-2019-wgs84.geojson", function (data) {
+            drawBuildings(data);
         });
         // mapbox access token
         L.mapbox.accessToken = 'pk.eyJ1IjoibWlrdXMzMSIsImEiOiJjazFjNWJibXcwYTJ6M3BxbjExaTAxMDFvIn0.-jtTOhL7aN53DazF5RRvxw';
@@ -43,6 +43,12 @@
         var map = L.map('map', {
             layers: [assessorBlue]
         }).setView([30.358292, -90.066007], 15);
+
+        function drawBuildings(data) {
+            var buildings_2019 = L.geoJSON(data).addTo(map);
+            // set the zoom/center to the extent of the geojson
+            map.fitBounds(buildings_2019.getBounds());
+        }
     </script>
 </body>
 

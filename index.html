@@ -46,7 +46,11 @@
 
         function drawBuildings(data) {
             // add the buildings to the map
-            var buildings_2019 = L.geoJSON(data).addTo(map);
+            var buildings_2019 = L.geoJSON(data, {
+                // style goes here
+            }).bindPopup(function (layer) {
+                return layer.feature.properties.status;
+            }).addTo(map);
             // set the zoom/center to the extent of the geojson
             map.fitBounds(buildings_2019.getBounds());
         }

@@ -48,6 +48,14 @@
             // add the buildings to the map
             var buildings_2019 = L.geoJSON(data, {
                 // style goes here
+                style: function (feature) {
+                    return {
+                        color: '#8EE3C8'
+                        , weight: 1.5
+                        , fillColor: '#8EE3C8'
+                        , fillOpacity: 0
+                    };
+                }
             }).bindPopup(function (layer) {
                 return layer.feature.properties.status;
             }).addTo(map);

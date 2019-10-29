@@ -44,34 +44,34 @@
         
         h1 {
             font-family: 'Merriweather', serif;
-            font-size: .9em;
-            color: steelblue;
+            font-size: .75em;
         }
         
         h2 {
             font-family: 'Merriweather', serif;
             font-size: 3em;
-            top: 50%;
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            position: absolute;
-            margin: 0;
         }
         
         h3 {
             font-family: 'Montserrat', sans-serif;
             font-size: .8em;
             font-weight: bold;
-            color: red;
-            top: 200px;
-            position: relative;
+            color: #acc3d8;
+            margin-bottom: -30px;
         }
         
         p {
             font-family: 'Montserrat', sans-serif;
             font-size: .85em;
-            top: 435px;
-            position: relative;
+            margin-top: -30px;
+        }
+        
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
         }
     </style>
 </head>
@@ -80,9 +80,11 @@
     <div id="sidebar">
         <center>
             <h1>St. Tammany Parish Assessor's Office</h1>
-            <h3>BUILDING FOOTPRINTS</h3>
-            <h2>How Mandeville Buildings Have Changed</h2>
-            <p>See how buildings have changed in the City of Mandeville since 2015. This map shows building footprints color-coded by status.</p>
+            <div class="vertical-center">
+                <h3>BUILDING FOOTPRINTS</h3>
+                <h2>How Mandeville Buildings Have Changed</h2>
+                <p>See how buildings have changed in the City of Mandeville since 2015. This map shows building footprints color-coded by status.</p>
+            </div>
         </center>
     </div>
     <div id="map"></div>

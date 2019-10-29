@@ -49,12 +49,43 @@
             var buildings_2019 = L.geoJSON(data, {
                 // style goes here
                 style: function (feature) {
-                    return {
-                        color: '#acc3d8'
-                        , weight: 1
-                        , fillColor: '#acc3d8'
-                        , fillOpacity: 0
-                    };
+                    switch (feature.properties.status) {
+                    case 'existing':
+                        return {
+                            color: '#acc3d8'
+                            , weight: 1
+                            , fillColor: '#acc3d8'
+                            , fillOpacity: 0
+                        };
+                    case 'new':
+                        return {
+                            color: '#9AF995'
+                            , weight: 1
+                            , fillColor: '#9AF995'
+                            , fillOpacity: 0
+                        };
+                    case 'changed':
+                        return {
+                            color: '#F6D2E3'
+                            , weight: 1
+                            , fillColor: '#F6D2E3'
+                            , fillOpacity: 0
+                        };
+                    case 'demolished':
+                        return {
+                            color: '#F14C2E'
+                            , weight: .2
+                            , fillColor: '#F14C2E'
+                            , fillOpacity: .1
+                        };
+                    case 'unknown':
+                        return {
+                            color: '#acc3d8'
+                            , weight: 1
+                            , fillColor: '#acc3d8'
+                            , fillOpacity: 0
+                        };
+                    }
                 }
             }).bindPopup(function (layer) {
                 return layer.feature.properties.status;

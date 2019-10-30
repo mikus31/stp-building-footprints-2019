@@ -6,7 +6,6 @@
     <meta charset=utf-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-    <script src="js/leaflet-side-by-side.js"></script>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <!-- Google Fonts -->
@@ -44,7 +43,7 @@
             padding-top: 20px;
         }
         
-        #legend {
+        legend {
             margin-left: 30px;
             top: 75%;
             position: fixed;
@@ -52,6 +51,55 @@
             width: 100px;
             background-color: whitesmoke;
             z-index: 1000;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .legend-color {
+            position: relative;
+        }
+        
+        .legend-color .legend-text {
+            margin-left: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 1px;
+        }
+        
+        .legend-color .color-box {
+            display: inline-block;
+            background-color: whitesmoke;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+        
+        .legend-color .color-box .box1 {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #acc3d8;
+        }
+        
+        .legend-color .color-box .box2 {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #acc3d8;
+            margin-top: 10px;
+        }
+        
+        .legend-color .color-box .box3 {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #acc3d8;
+            margin-top: 10px;
+        }
+        
+        .legend-color .color-box .box4 {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #acc3d8;
+            margin-top: 10px;
         }
         
         h1 {
@@ -118,10 +166,27 @@
         </center>
     </div>
     <div id="map">
-        <div id="legend">The legend!</div>
+        <legend>
+            <div class="legend-color">
+                <div class="color-box">
+                    <div class="box1">
+                        <div class="legend-text">Existing</div>
+                    </div>
+                    <div class="box2">
+                        <div class="legend-text">Existing</div>
+                    </div>
+                    <div class="box3">
+                        <div class="legend-text">Existing</div>
+                    </div>
+                    <div class="box4">
+                        <div class="legend-text">Existing</div>
+                    </div>
+                </div>
+            </div>
+        </legend>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js'></script>
     <script>
         // load data and call function to draw on map
         $.getJSON("data/mandeville-buildings-2019-wgs84.geojson", function (data) {

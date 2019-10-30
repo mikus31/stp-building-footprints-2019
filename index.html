@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
@@ -44,8 +45,8 @@
         }
         
         legend {
-            margin-left: 30px;
-            top: 80%;
+            margin-left: 15px;
+            top: 83%;
             position: fixed;
             height: 135px;
             width: 115px;
@@ -103,8 +104,9 @@
         }
         
         h1 {
-            font-family: 'Merriweather', serif;
-            font-size: .75em;
+            font-family: 'Lobster', cursive;
+            font-size: 1.1em;
+            font-weight: normal;
         }
         
         h2 {
@@ -127,10 +129,13 @@
             margin-bottom: 40px;
         }
         
+        p.social {
+            margin-top: -25px;
+        }
+        
         p.byline {
             font-family: 'Montserrat', sans-serif;
             font-size: .60em;
-            margin-bottom: 10px;
         }
         
         .vertical-center {
@@ -162,7 +167,9 @@
                 <h3>BUILDING FOOTPRINTS</h3>
                 <h2>How Mandeville Buildings Have Changed</h2>
                 <p>See how buildings have changed in the City of Mandeville since 2015. This map shows building footprints color-coded by status.</p>
-                <p class="byline">By: MICHAEL MCNEIL | 2019-10-30</p> <a href='https://stpao.org/' target="_blank"><i class="material-icons">web</i></a> <a href='https://atlas.geoportalmaps.com/st_tammany' target="_blank"><i class="material-icons">map</i></a> <a href='mailto: mmcneil@stpao.org'><i class="material-icons">email</i></a> </div>
+                <p class="social"><a href='https://stpao.org/' target="_blank"><i class="material-icons">web</i></a> <a href='https://atlas.geoportalmaps.com/st_tammany' target="_blank"><i class="material-icons">map</i></a> <a href='mailto: mmcneil@stpao.org'><i class="material-icons">email</i></a></p>
+                <p class="byline">By: MICHAEL MCNEIL | 2019-10-30</p>
+            </div>
         </center>
     </div>
     <div id="map">

@@ -258,12 +258,8 @@
                 var popup = "This building is " + layer.feature.properties.status + ".";
                 return popup;
             }).addTo(map);
-            // set the zoom/center to the extent of the geojson
-            map.fitBounds(buildings_2019.getBounds());
-            // and then zoom in a tad
-            map.setZoom(map.getZoom() + .5);
-            // set the max bounds to prevent user from scrolling beyond the bounds of the data
-            // map.setMaxBounds(map.getBounds());
+            // set the zoom and center manually
+            map.setView([30.375, -90.065], 14);
         }
     </script>
 </body>

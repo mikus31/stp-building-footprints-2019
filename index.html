@@ -255,11 +255,17 @@
                     }
                 }
             }).bindPopup(function (layer) {
-                var popup = "This building is " + layer.feature.properties.status + ".";
+                var popup = "This building is " + layer.feature.properties.status + " since 2015.";
                 return popup;
             }).addTo(map);
             // set the zoom and center manually
             map.setView([30.375, -90.065], 14);
+            map.setMinZoom(14);
+            // -90.165887,30.317568,-89.981866,30.433232
+            var corner1 = L.latLng(30.317568, -90.165887)
+                , corner2 = L.latLng(30.433232, -89.981866)
+                , bounds = L.latLngBounds(corner1, corner2);
+            map.setMaxBounds(bounds);
         }
     </script>
 </body>

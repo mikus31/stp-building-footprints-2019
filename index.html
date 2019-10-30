@@ -39,7 +39,7 @@
             z-index: 1000;
             top: 0;
             left: 0;
-            background-color: whitesmoke;
+            background-color: #ffffff;
             overflow-x: hidden;
             padding-top: 20px;
         }
@@ -50,7 +50,7 @@
             position: fixed;
             height: 135px;
             width: 115px;
-            background-color: whitesmoke;
+            background-color: #ffffff;
             z-index: 1000;
             padding: 10px;
             border-radius: 4px;
@@ -70,7 +70,7 @@
         
         .legend-color .color-box {
             display: inline-block;
-            background-color: whitesmoke;
+            background-color: #ffffff;
             position: absolute;
             left: 5px;
             top: 5px;
@@ -79,21 +79,24 @@
         .legend-color .color-box .box1 {
             width: 20px;
             height: 20px;
-            border: 2px solid #acc3d8;
+            border: 1px solid #d9feff;
+            background-color: #d9feff;
         }
         
         .legend-color .color-box .box2 {
             width: 20px;
             height: 20px;
-            border: 2px solid #9AF995;
+            border: 1px solid #a8e899;
             margin-top: 10px;
+            background-color: #a8e899;
         }
         
         .legend-color .color-box .box3 {
             width: 20px;
             height: 20px;
-            border: 2px solid #F6D2E3;
+            border: 1px solid #ffa600;
             margin-top: 10px;
+            background-color: #ffa600;
         }
         
         .legend-color .color-box .box4 {
@@ -216,24 +219,24 @@
                     switch (feature.properties.status) {
                     case 'existing':
                         return {
-                            color: '#acc3d8'
-                            , weight: 1
-                            , fillColor: '#acc3d8'
-                            , fillOpacity: 0
+                            color: '#ffffff'
+                            , weight: .5
+                            , fillColor: '#d9feff'
+                            , fillOpacity: 1
                         };
                     case 'new':
                         return {
-                            color: '#9AF995'
-                            , weight: 1
-                            , fillColor: '#9AF995'
-                            , fillOpacity: 0
+                            color: '#ffffff'
+                            , weight: .5
+                            , fillColor: '#92e48d'
+                            , fillOpacity: 1
                         };
                     case 'changed':
                         return {
-                            color: '#F6D2E3'
-                            , weight: 1
-                            , fillColor: '#F6D2E3'
-                            , fillOpacity: 0
+                            color: '#ffffff'
+                            , weight: .5
+                            , fillColor: '#ffa600'
+                            , fillOpacity: 1
                         };
                     case 'demolished':
                         return {
@@ -244,10 +247,10 @@
                         };
                     case 'unknown':
                         return {
-                            color: '#acc3d8'
-                            , weight: 1
-                            , fillColor: '#acc3d8'
-                            , fillOpacity: 0
+                            color: '#ffffff'
+                            , weight: .5
+                            , fillColor: '#d9feff'
+                            , fillOpacity: 1
                         };
                     }
                 }
@@ -256,6 +259,10 @@
             }).addTo(map);
             // set the zoom/center to the extent of the geojson
             map.fitBounds(buildings_2019.getBounds());
+            // and then zoom in a tad
+            map.setZoom(map.getZoom() + .5);
+            // set the max bounds to prevent user from scrolling beyond the bounds of the data
+            // map.setMaxBounds(map.getBounds());
         }
     </script>
 </body>

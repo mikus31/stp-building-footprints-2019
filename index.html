@@ -159,6 +159,12 @@
         a:hover {
             color: #acc3d8;
         }
+        
+        .leaflet-popup-content-wrapper {
+            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+        }
     </style>
 </head>
 
@@ -255,7 +261,7 @@
                     }
                 }
             }).bindPopup(function (layer) {
-                var popup = "This building is " + layer.feature.properties.status + " since 2015.";
+                var popup = "This building is " + "<b>* " + layer.feature.properties.status + " *</b>" + " since 2015.";
                 return popup;
             }).addTo(map);
             // set the zoom and center manually

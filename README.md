@@ -1,7 +1,8 @@
-http://zevross.com/blog/2014/08/12/add-a-before-after-map-slider-to-a-leaflet-map/
+#### Inspirations
 
-http://archive.nytimes.com/www.nytimes.com/interactive/2011/03/13/world/asia/satellite-photos-japan-before-and-after-tsunami.html?_r=0
+Tim Wallace et al ---> https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html
 
-https://github.com/digidem/leaflet-side-by-side
+More on that map here ---> https://blog.mapbox.com/building-with-building-footprints-22ac88b863bf
 
-https://blog.mapbox.com/building-with-building-footprints-22ac88b863bf
+Sidebar and overall styling heavily inspired by this map ---> https://projects.sfchronicle.com/trackers/california-fire-map/air-quality/
+

@@ -274,8 +274,12 @@
                 }
             }).bindPopup(function (layer) {
                 var buildingArea = Math.round(layer.feature.properties.area);
+                var prevArea = Math.round(layer.feature.properties.prev_area);
+                var pctChange = Math.round(layer.feature.properties.pct_change);
+                var buildingStatus = layer.feature.properties.status;
+                var buildingStatusUpper = buildingStatus[0].toUpperCase() + buildingStatus.slice(1);
                 // console.log(buildingArea);
-                var popup = "This " + buildingArea + " square foot building is " + "<b>* " + layer.feature.properties.status + " *</b>" + " since 2015.";
+                var popup = "<font size=3><b>" + buildingStatusUpper + " Building" + "</b></font>" + "<br><br>" + "<b>Square Footage</b>" + ": " + buildingArea + "<br><br>" + "<b>Previous Area</b>" + ": " + prevArea + "<br><br>" + "<b>Percent Change</b>" + ": " + pctChange + "%";
                 return popup;
             }).addTo(map);
             // set the zoom and center manually

@@ -273,7 +273,9 @@
                     }
                 }
             }).bindPopup(function (layer) {
-                var popup = "This building is " + "<b>* " + layer.feature.properties.status + " *</b>" + " since 2015.";
+                var buildingArea = Math.round(layer.feature.properties.area);
+                // console.log(buildingArea);
+                var popup = "This " + buildingArea + " square foot building is " + "<b>* " + layer.feature.properties.status + " *</b>" + " since 2015.";
                 return popup;
             }).addTo(map);
             // set the zoom and center manually
